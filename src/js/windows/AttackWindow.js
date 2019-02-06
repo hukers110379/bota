@@ -34,10 +34,10 @@ class AttackWindow {
 		this.targetNameTxt.text("Target: " + (value ? value : '' ));
 	}
 	hp(value) {
-		this.hpTxt.text(chrome.i18n.getMessage("hp") + (value ? value : '' ));
+		this.hpTxt.text("HP: " + (value ? value : '' ));
 	}
 	shd(value) {
-		this.shdTxt.text(chrome.i18n.getMessage("shd") + (value ? value :''));
+		this.shdTxt.text("Shd: " + (value ? value :''));
 	}
 	ship(value){
 		this.shipTxt.text("Ship: " + (value ? value:''));

@@ -420,6 +420,7 @@ class Api {
 	findNearestShip() {
 		let minDist = window.settings.settings.palladium ? window.settings.settings.npcCircleRadius : 100000;
 		let finalShip;
+		let highestPriority = 0;
 
 		if (!window.settings.settings.killNpcs) {
 			return {
@@ -432,22 +433,26 @@ class Api {
 			let ship = this.ships[property];
 			ship.update();
 			let dist = ship.distanceTo(window.hero.position);
-
+			let priority = window.settings.getNpc(ship.name).priority;
 			if (dist < minDist) {
-				if (ship.isNpc && window.settings.getNpc(ship.name) && !this.isShipOnBlacklist(ship.id) && !ship.isAttacked) {
+				if (ship.isNpc && !window.settings.getNpc(ship.name).blocked && !this.isShipOnBlacklist(ship.id) && !ship.isAttacked) {
 					if(ship.firstAttacker == null || (ship.firstAttacker != null && ship.firstAttacker == window.hero.id)){
-						finalShip = ship;
-						minDist = dist;
+						if(priority > highestPriority){
+							finalShip = ship;
+							minDist = dist;
+							highestPriority = priority;
+						}
 					}
 				}
 			}
 		}
 
 		return {
-		ship: finalShip,
-		distance: minDist
+			ship: finalShip,
+			distance: minDist
 		};
 	}
+
 
 	findNearestGate() {
 		let minDist = 100000;

@@ -122,8 +122,8 @@ function init() {
 	window.npcSettingsWindow = new NpcSettingsWindow();
 	window.npcSettingsWindow.createWindow();
 
-	window.shipSettings = new ShipSettings();
-	window.shipSettings.createWindow();
+	window.shipSettingsWindow = new ShipSettingsWindow();
+	window.shipSettingsWindow.createWindow();
 
 	window.statisticWindow = new StatisticWindow();
 	window.statisticWindow.createWindow();
@@ -150,7 +150,7 @@ function init() {
 				let dist = ship.distanceTo(window.hero.position);
 
 				if (dist < maxDist && dist < finDist && ((ship.isNpc && window.settings.settings.lockNpc && key == "x" &&
-				 (!window.settings.settings.excludeNpcs || window.settings.getNpc(ship.name))) ||
+				 (!window.settings.settings.excludeNpcs || !window.settings.getNpc(ship.name).blocked)) ||
 				  (!ship.isNpc && ship.isEnemy && window.settings.settings.lockPlayers && key == "z"))) {
 					finalShip = ship;
 					finDist = dist;

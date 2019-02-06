@@ -68,15 +68,27 @@ class Settings {
 	}
 
 
-	setNpc(name, val) {
+	// :|
+	setNpc(name, blocked) {
 		if(this.settings.npcs[name] == null){
-			this.settings.npcs[name] = 500;
+			this.settings.npcs[name] = {blocked: blocked, priority: 1};
 		}else{
-			this.settings.npcs[name] = val;
+			this.settings.npcs[name].blocked = blocked;
+		}
+	}
+
+	setNpcPriority(name, priority){
+		if(this.settings.npcs[name] == null){
+			this.settings.npcs[name] = {blocked: false, priority: priority};
+		}else{
+			this.settings.npcs[name].priority = priority;
 		}
 	}
 
 	getNpc(name) {
-		return !this.settings.npcs[name];
+		return {
+			blocked: !this.settings.npcs[name] ?  false: this.settings.npcs[name].blocked,
+			priority: !this.settings.npcs[name] ? 1: this.settings.npcs[name].priority
+		}
 	}
 }

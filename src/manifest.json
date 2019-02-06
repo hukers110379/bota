@@ -52,7 +52,7 @@
         "js/windows/StatisticWindow.js",
         "js/windows/AutolockWindow.js",
         "js/windows/CollectionWindow.js",
-        "js/windows/ShipSettings.js",
+        "js/windows/ShipSettingsWindow.js",
         "js/objects/Movable.js",
         "js/objects/Box.js",
         "js/objects/Hero.js",

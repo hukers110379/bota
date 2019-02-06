@@ -7,6 +7,7 @@ class GGSettingsWindow {
 
 		let controls = [{
 			name: 'ggbot',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("ggbot"),
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -15,6 +16,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'alpha',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Alpha',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -23,6 +25,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'beta',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Beta',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -31,6 +34,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'gamma',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Gamma',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -39,6 +43,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'delta',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Delta',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -47,6 +52,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'epsilon',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Epsilon',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -55,6 +61,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'zeta',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Zeta',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -63,6 +70,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'kappa',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Kappa',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -71,6 +79,7 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'lambda',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Lambda',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
@@ -79,22 +88,16 @@ class GGSettingsWindow {
 		},
 		{
 			name: 'kronos',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Kronos',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
 				window.settings.settings.kronos = this.checked;
 			}
-		},/*
-		{
-		name: 'hades',
-		labelText: chrome.i18n.getMessage("jumpin")+' GG Hades',
-		appendTo: this.GGSettingsWindow,
-		event: function () {
-		window.settings.settings.hades = this.checked;
-		}
-		},*/
+		},
 		{
 			name: 'kuiper',
+			type: 'checkbox',
 			labelText: chrome.i18n.getMessage("jumpin")+' GG Kuiper',
 			appendTo: this.GGSettingsWindow,
 			event: function () {
