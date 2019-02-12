@@ -7,7 +7,7 @@ class NpcSettingsWindow {
 		});
 
 		let controls = [];
-		let columns = ["Block", "Name", "Priority"];
+		let columns = ["Block", "Name", "Priority","Range"];
 		let table = ControlFactory.createTable(columns);
 		this.knownNpcList.forEach((n, i) => {
 			controls.push([
@@ -29,9 +29,19 @@ class NpcSettingsWindow {
 						value: window.settings.getNpc(n).priority
 					}, 
 					event:function(){
-						console.log(this);
-						console.log(this.value);
 						window.settings.setNpcPriority(n, this.value);
+					}
+				},
+				{
+					type:'number',
+					name:n,
+					attrs:{
+						class: 'ranges '+n,
+						style:"width:50px;",
+						value: window.settings.getNpc(n).range
+					}, 
+					event:function(){
+						window.settings.setNpcRange(n, this.value);
 					}
 				}
 			]);

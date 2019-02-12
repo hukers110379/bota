@@ -607,14 +607,14 @@ function logic() {
 				let cx = enemy.x;
 				let cy = enemy.y;
 				if(api.lockedShip.percentOfHp < 25 || dist > 700){
-					cx = api.targetShip.target.x;
-					cy = api.targetShip.target.y;
+					cx = api.targetShip.target.x + (cx-api.targetShip.target.x);
+					cy = api.targetShip.target.y + (cy-api.targetShip.target.y);
 				}
 				let f = Math.atan2(window.hero.position.x - cx, window.hero.position.y - cy) + 0.5;
 				let s = Math.PI / 180;
 				f += s;
-				x = cx + window.settings.settings.npcCircleRadius * Math.sin(f);
-				y = cy + window.settings.settings.npcCircleRadius * Math.cos(f);
+				x = cx + window.settings.getNpc(api.targetShip.name).range * Math.sin(f);
+				y = cy + window.settings.getNpc(api.targetShip.name).range * Math.cos(f);
 				let nearestBox = api.findNearestBox();
 				if (nearestBox && nearestBox.box && nearestBox.distance < 300) {
 					circleBox = nearestBox;

@@ -7,6 +7,7 @@ class Settings {
 			moveRandomly: false,
 			killNpcs: false,
 			fleeFromEnemy: false,
+			fleeWhenAttacked: false,
 			jumpFromEnemy: false,
 			dodgeTheCbs: false,
 			avoidAttackedNpcs: false,
@@ -67,11 +68,10 @@ class Settings {
 		});
 	}
 
-
 	// :|
 	setNpc(name, blocked) {
 		if(this.settings.npcs[name] == null){
-			this.settings.npcs[name] = {blocked: blocked, priority: 1};
+			this.settings.npcs[name] = {blocked: blocked, priority: 1, range:this.settings.npcCircleRadius};
 		}else{
 			this.settings.npcs[name].blocked = blocked;
 		}
@@ -79,16 +79,25 @@ class Settings {
 
 	setNpcPriority(name, priority){
 		if(this.settings.npcs[name] == null){
-			this.settings.npcs[name] = {blocked: false, priority: priority};
+			this.settings.npcs[name] = {blocked: false, priority: priority, range: this.settings.npcCircleRadius};
 		}else{
 			this.settings.npcs[name].priority = priority;
+		}
+	}
+
+	setNpcRange(name, range){
+		if(this.settings.npcs[name] == null){
+			this.settings.npcs[name] = {blocked: false, priority: 1, range: range};
+		}else{
+			this.settings.npcs[name].range = range;
 		}
 	}
 
 	getNpc(name) {
 		return {
 			blocked: !this.settings.npcs[name] ?  false: this.settings.npcs[name].blocked,
-			priority: !this.settings.npcs[name] ? 1: this.settings.npcs[name].priority
+			priority: !this.settings.npcs[name] ? 1: this.settings.npcs[name].priority,
+			range: !this.settings.npcs[name] ? this.settings.npcCircleRadius: this.settings.npcs[name].range,
 		}
 	}
 }
