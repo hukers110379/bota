@@ -15,6 +15,10 @@ class ShipRemovedHandler {
 
 			if (ship != null)
 				delete a.ships[id];
+
+			if(window.enemy && id == window.enemy.id){
+				window.enemy = null;
+			}
 		}
 	}
 
