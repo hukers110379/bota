@@ -36,6 +36,8 @@ class Api {
 		this.pauseStop = null;
 		// sleep
 		this.sleepTime = 0;
+		// enemy
+		this.enemyLastSight = $.now();
 	}
 
 	sleeping(){

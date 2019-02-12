@@ -234,26 +234,10 @@ function logic() {
 		api.rute = null;
 	}
 	
-	if(window.settings.settings.fleeFromEnemy && window.fleeFromEnemy && window.enemy){
+	if(window.settings.settings.fleeFromEnemy && window.enemy){
 		api.flyingMode();
-		// Use spectrum hability when running from enemy if not too close to gate.
-		window.fleeingFromEnemy = true;
 		api.fleeFromEnemy(window.enemy);
 		return;
-	}else{
-		window.fleeFromEnemy = false;
-		window.stayInPortal = false;
-	}
-
-	if (window.settings.settings.fleeFromEnemy && !window.settings.settings.palladium) {
-		let enemyResult = api.checkForEnemy();
-		if (enemyResult.run) {
-			window.enemy = enemyResult.enemy;
-			window.fleeFromEnemy = true;
-			return;
-		}else{
-			window.enemy = null;
-		}
 	}
 
 	if(api.sleeping()){
